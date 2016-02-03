@@ -1,18 +1,8 @@
-var serialport = require("serialport");
-var util = require("util");
+var sp = require('./handler.js').handler;
 
 // var portName = '/dev/tty.usbserial-A7006Tv2';
 var portName = '/dev/tty.arduino-DevB';
 // var portName = '/dev/tty.usbserial-AL01CANK';
-
-var sp = new serialport.SerialPort(portName, {
-    baudRate: 9600,
-    dataBits: 8,
-    parity: 'none',
-    stopBits: 1,
-    flowControl: false,
-    parser: serialport.parsers.readline("\r\n")
-});
 
 sp.on('open', function () {
     console.log('serial connection established.');
